@@ -1,0 +1,99 @@
+{% extends '_base.html' %}
+<!--  -->
+{% block user %}
+<!--  -->
+{% if tUser.is_authenticated %}
+<!--  -->
+{{ tUser.username }}
+<!--  -->
+{% endif %}
+
+<div class="container">
+  <div class="row" style="height: 30px; margin-top: 30px">
+    <h4>Create a form here</h4>
+  </div>
+  <hr />
+  <div class="row">
+    <form action="{% url 'create_form' %}" class="form" method="post">
+      {% csrf_token %}
+      <!-- Form title -->
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="form_title"
+          placeholder="Enter form title"
+          name="form_title"
+        />
+        <label for="form_title">Enter form title</label>
+      </div>
+      <!--  -->
+      <br />
+      <button type="submit" class="btn btn-success mb-3" style="width: 100%">
+        Create form
+      </button>
+    </form>
+    <hr />
+  </div>
+  <div class="row">
+    <form action="{% url 'add_question' %}" method="post">
+      {% csrf_token %}
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <!-- Question name -->
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default"
+                >Question</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+              />
+            </div>
+            <!--  -->
+          </div>
+
+          <br />
+          <!-- Question type select -->
+          <div class="col">
+            <div class="question-type">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Select question type</option>
+                <option value="text">Short text</option>
+                <option value="textarea">Large text</option>
+              </select>
+            </div>
+          </div>
+          <!--  -->
+          <br />
+          <!-- Mandatory question radio -->
+          <div class="col">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckChecked"
+                checked
+              />
+              <label class="form-check-label" for="flexSwitchCheckChecked"
+                >Mandatory question ?</label
+              >
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <button class="btn btn-outline-success" type="submit">
+            Add Question
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

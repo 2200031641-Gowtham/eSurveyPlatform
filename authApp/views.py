@@ -1,16 +1,23 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from .models import eZy_users
-# Create your views here.
-def login(request):
+from django.contrib.auth import authenticate,login
+from django.contrib import messages,auth
+def loginPage(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username1 = request.POST['username']
+        password1 = request.POST['password']
         users = eZy_users.objects.all()
-        if(users.filter(uname=username,password=password).exists()):
-            return HttpResponse('Login success')
+        user = users.filter(uname=username1,password=password1)
+        if user.exists():
+            tUser = auth.authenticate(username=username1,password=password1)
+            print(username1,password1)
+            auth.login(request,tUser)
+            messages.success(request,'You are now logged in as '+user[0].fname)
+            return redirect('user_index')
         else:
-            return HttpResponse('Login failed')
+            messages.error(request,'Invalid credentials')
+            return redirect('login')
     return render(request, 'auth/login.html')
 
 def register(request):
@@ -27,9 +34,9 @@ def register(request):
         address = request.POST.get('address')
         if(password == confirmPassword):
             print(fname,lname,uname,email,phone,age,gender,password,address)
-            user = eZy_users(fname=fname,lname=lname,uname=uname,email=email,phone=phone,age=age,password=password,address=address)
+            user = eZy_users(fname=fname,lname=lname,uname=uname,email=email,phone=phone,age=age,gender=gender,password=password,address=address)
             user.save()
-            return HttpResponse('User registered successfully')
+            redirect('login')
         else:
             print('OKokOK')
         print('Register request received')

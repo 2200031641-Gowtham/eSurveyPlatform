@@ -55,7 +55,7 @@ ROOT_URLCONF = 'eSurveyPlatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates/','templates/home','templates/auth'],
+        'DIRS': ['templates/','templates/home','templates/auth','templates/user'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eSurveyPlatform.wsgi.application'
 
-
+# AUTH_USER_MODEL = 'authApp.eZy_users'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 

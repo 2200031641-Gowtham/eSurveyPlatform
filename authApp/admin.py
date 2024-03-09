@@ -1,3 +1,3 @@
+from .models import eZy_users
 from django.contrib import admin
-
-# Register your models here.
+admin.site.register(eZy_users)

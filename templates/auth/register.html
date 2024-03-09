@@ -134,8 +134,14 @@
                 class="form-control"
                 id="floatingInput"
                 placeholder="Enter password"
+                minlength="8"
+                maxlength="16"
               />
               <label for="floatingInput">Password</label>
+              <div class="invalid-feedback">
+                The password must be atleast 8 chars length and atmost 16 chars
+                length
+              </div>
             </div>
             <div class="invalid-feedback">Please enter your first name.</div>
           </div>
@@ -148,14 +154,19 @@
                 class="form-control"
                 id="floatingInput"
                 placeholder="Confirm your passsword"
+                minlength="8"
+                maxlength="16"
               />
               <label for="floatingInput">Confirm Password</label>
+              <div class="invalid-feedback">
+                The password must be atleast 8 chars length and atmost 16 chars
+                length
+              </div>
             </div>
             <div class="invalid-feedback">Please enter your first name.</div>
           </div>
         </div>
 
-        <!-- <div class="row"> -->
         <div class="form-floating md-6">
           <textarea
             name="address"
@@ -168,8 +179,6 @@
         </div>
       </div>
       <br />
-      <!-- </div> -->
-
       <div class="d-grid">
         <button
           class="btn btn-primary btn-login fw-semibold text-uppercase rounded-pill border-0 py-2"

@@ -13,13 +13,26 @@
     />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
   </head>
-  <body>
-    {% block navbar %} {% endblock %} {% block main %} {% endblock %}
+  <body style="height: 100vh; margin: 0">
+    {% block navbar %} {% endblock %}
+    <!--  -->
+    {% block main %} {% endblock %}
     <!---->
+    {% block user %}{% endblock %}
+    <!--  -->
+    {% block unav %}{% endblock %}
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <footer
+      class="footer"
+      style="position: absolute; bottom: 0; width: 75%; text-align: center"
+    >
+      &copy
+      <cite title="Source Title">Ala Gowtham Siva Kumar, R Madhukumar</cite>
+    </footer>
   </body>
 </html>
