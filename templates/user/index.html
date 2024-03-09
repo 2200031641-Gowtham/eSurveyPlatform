@@ -1,4 +1,4 @@
-{% include "_base.html" %}
+{% include "user_base.html" %}
 <!--  -->
 {% block unav %}
 <!--  -->
@@ -35,31 +35,46 @@
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      style="width: 100%"
+    >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <a href="#"><li class="nav-item">Form Analytics</li></a>
+        <li class="nav-item" style="width: max-content">
+          <a class="nav-link" href="{% url 'manage_forms' %}"
+            >Manage responses</a
+          >
+        </li>
       </ul>
-      <a href="#" class="link px-4">Manage profile</a>
-      <a href="{% url 'home' %}"
-        ><button class="btn btn-outline-primary">Logout</button></a
-      >
+      <div class="row">
+        <div class="col">
+          <a href="{% url 'manage_profile' %}" style="text-decoration: none">
+            <button class="btn btn-outline-primary">Manage profile</button>
+          </a>
+          <a href="{% url 'create_form' %}"
+            ><button class="btn btn-outline-success">Create form</button></a
+          >
+          <a href="{% url 'user_grievances' %}" style="text-decoration: none">
+            <button class="btn btn-outline-dark">Grievances</button>
+          </a>
+          <a href="{% url 'logout' %}"
+            ><button class="btn btn-outline-danger">Logout</button></a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 {% endblock %}
 <!--  -->
-<h2 class="display-6">Welcome to the user index page</h2>
-<p class="lead">
-  Here the list of created forms will be displayed with options like update,
-  delete and share
-</p>
-<a href="{% url 'create_form' %}"
-  ><button class="btn btn-success">Create form here</button></a
->
+{% if ezy_user %}
+<h2 class="display-6">Welcome back <strong>{{ezy_user.fname}}</strong></h2>
+{% endif %}

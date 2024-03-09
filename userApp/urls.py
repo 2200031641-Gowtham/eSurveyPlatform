@@ -6,4 +6,10 @@ urlpatterns = [
     path('create_form',views.create_form,name='create_form'),
     path('add_question',views.add_question,name='add_question'),
     path('save_user',views.save_user,name='save_user'),
+    path('manage_forms',views.manage_forms,name='manage_forms'),
+    path('manage_profile',views.manage_profile,name='manage_profile'),
+    path('logout',views.logout,name='logout'),
+    path('user_dashboard',views.refresh_user,name='refresh_user'),
+    path('user_grievances',views.user_grievances,name='user_grievances'),
+    path('update_profile',views.update_profile,name='update_profile')
 ]
