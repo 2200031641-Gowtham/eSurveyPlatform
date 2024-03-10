@@ -16,7 +16,6 @@ class form_questions(models.Model):
     question_id = models.AutoField(primary_key=True)
     question_text = models.CharField(max_length=1000)
     question_type = models.CharField(max_length=100)
-    question_options = models.CharField(max_length=1000)
     question_required = models.BooleanField(default=False)
     class Meta:
         db_table = 'form_questions'

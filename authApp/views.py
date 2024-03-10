@@ -10,9 +10,6 @@ def loginPage(request):
         users = eZy_users.objects.all()
         user = users.filter(uname=username1,password=password1)
         if user.exists():
-            tUser = auth.authenticate(username=username1,password=password1)
-            print(username1,password1)
-            auth.login(request,tUser)
             messages.success(request,'You are now logged in as '+user[0].fname)
             return redirect('user_index')
         else:

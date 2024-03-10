@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'eSurveyPlatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'e_survey_platform',
-        'HOST':'localhost',
-        'USER':'gowtham',
-        'PASSWORD':'gowtham',
+        'NAME': 'postgres',
+        'HOST':'aws-0-ap-south-1.pooler.supabase.com',
+        'USER':'postgres.emwcxmjwubrncthxvnij',
+        'PASSWORD':'!@#MDgB4#@!',
         'PORT':'5432',
     }
 }
