@@ -27,3 +27,11 @@ class form_answers(models.Model):
     answer_text = models.CharField(max_length=1000)
     class Meta:
         db_table = 'form_answers'
+        
+class grievances(models.Model):
+    grievance_id = models.AutoField(primary_key=True)
+    grievance_user = models.CharField(max_length=100)
+    grievance_issue = models.CharField(max_length=100)
+    grievance_message = models.CharField(max_length=1000)
+    class Meta:
+        db_table = 'grievances'

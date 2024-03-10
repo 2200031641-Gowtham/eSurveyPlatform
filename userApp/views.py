@@ -55,7 +55,16 @@ def manage_profile(request):
 def logout(request):
     currentUser = eZy_users()
     return redirect('home')
+from .models import grievances
 def user_grievances(request):
+    if request.method == 'POST':
+        uname = request.POST['name']
+        issue = request.POST['issue']
+        message = request.POST.get['message']
+        g = grievances(grievance_user=uname,grievance_issue = issue,grievance_message=message)
+        g.save()
+        messages.success(request, 'Grievance submitted successfully')
+        return redirect('user_grievances')
     return render(request,'user/user_grievances.html')
 
 from django.contrib import messages
