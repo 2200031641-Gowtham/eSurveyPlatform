@@ -1,8 +1,7 @@
 from django.shortcuts import render,redirect
-# from django.http import HttpResponse
 from .models import eZy_users
-from django.contrib.auth import authenticate,login
-from django.contrib import messages,auth
+from django.contrib import messages
+
 def loginPage(request):
     if request.method == 'POST':
         username1 = request.POST['username']
